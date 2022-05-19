@@ -8,12 +8,12 @@ public class Weather {
 
     public Weather(JSONObject jsonObject) {
         JSONObject current = jsonObject.getJSONObject("current");
-        JSONObject condition = jsonObject.getJSONObject("condition");
+        JSONObject condition = current.getJSONObject("condition");
 
         temperatureF = current.getDouble("temp_f");
         temperatureC = current.getDouble("temp_c");
         currentCondition = condition.getString("text");
-        conditionIcon = condition.getString("icon");
+        conditionIcon = "https:"+condition.getString("icon");
     }
 
     public double getTemperatureF() {
